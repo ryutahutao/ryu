@@ -1,0 +1,57 @@
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="vewport content=width=device-width">
+<title>count</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+<header>
+    <h1>count down</h1>
+</header>
+<div class="all">
+    <div class="container">
+<p id="timer">00:00:00</p>
+
+
+
+    </div>
+
+    <input type="button" value="count" onclick="GetRandomNumber()">
+
+</div>
+
+
+<script>
+function GetRandomNumber() {
+var date=new Date(2023, 0, 1,00,00,00,);
+var now=new Date();
+var notate=date-now;
+var second=Math.floor(notate/1000);
+var minute=Math.floor(second/60);
+var hour=Math.floor(minute/60);
+var date2=Math.floor(hour/24);
+
+
+
+second=second-minute*60;
+minute=minute-hour*60;
+hour=hour-date2*24;
+
+document.getElementById("timer").innerHTML="新年まで"+date2+"日"+hour+"時間"+minute+"分"+second+"秒";
+
+
+if(notate>0){
+var timer_id=setInterval(GetRandomNumber,10);
+}else if(notate<0){
+    clearInterval(timer_id);
+}
+}
+
+</script>
+</body>
+</html>
